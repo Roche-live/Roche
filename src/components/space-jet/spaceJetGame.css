@@ -115,7 +115,7 @@
 
 .device-direction-button:hover,
 .device-action-button:hover {
-  filter: brightness(1.05);
+  background: #6fa6b3;
 }
 
 .device-direction-button:active,
