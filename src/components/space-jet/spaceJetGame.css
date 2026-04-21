@@ -1,0 +1,161 @@
+.mini-game-card {
+  background: #2f5f6f;
+}
+
+.mini-game-layout {
+  display: flex;
+  justify-content: center;
+}
+
+.mini-device {
+  justify-self: center;
+  width: min(100%, 760px);
+  padding: 16px 18px 18px;
+  border: 4px solid #16282f;
+  background: #2f5f6f;
+  box-shadow: 6px 6px 0 #1f3e4a;
+  outline: none;
+}
+
+.mini-device:focus-visible {
+  box-shadow:
+    6px 6px 0 #1f3e4a,
+    0 0 0 3px rgba(111, 166, 179, 0.24);
+}
+
+.mini-device-topline {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+  color: rgba(17, 24, 33, 0.74);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.mini-device-screen-frame {
+  padding: 12px;
+  border: 3px solid #16282f;
+  background: #1f3e4a;
+}
+
+.mini-device-screen-label {
+  margin-bottom: 10px;
+  color: #223243;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.mini-game-canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 3px solid #16282f;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(50, 64, 79, 0.06) 0,
+      rgba(50, 64, 79, 0.06) 2px,
+      rgba(248, 252, 255, 0.08) 2px,
+      rgba(248, 252, 255, 0.08) 4px
+    ),
+    #e5ded0;
+  image-rendering: pixelated;
+  box-shadow: inset 0 0 0 2px rgba(248, 252, 255, 0.06);
+}
+
+.mini-device-controls {
+  display: grid;
+  grid-template-columns:
+    minmax(132px, 1.2fr)
+    repeat(3, minmax(110px, 0.9fr))
+    minmax(132px, 1.2fr);
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.device-direction-button,
+.device-action-button {
+  border: 3px solid #16282f;
+  color: #111821;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  cursor: pointer;
+  user-select: none;
+  font-weight: 800;
+}
+
+.device-direction-button {
+  width: 100%;
+  height: 60px;
+  background: #3f7c8c;
+  box-shadow: 2px 2px 0 #1f3e4a;
+}
+
+.device-direction-button span {
+  display: inline-block;
+  font-size: 15px;
+}
+
+.device-action-button {
+  width: 100%;
+  min-width: 0;
+  padding: 11px 14px;
+  background: #2f5f6f;
+  box-shadow: 2px 2px 0 #1f3e4a;
+  font-size: 11px;
+}
+
+.device-rope-button {
+  background: #6fa6b3;
+}
+
+.device-direction-button:hover,
+.device-action-button:hover {
+  filter: brightness(1.05);
+}
+
+.device-direction-button:active,
+.device-direction-button.is-pressed,
+.device-action-button:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+}
+
+.device-rope-button:active,
+.device-rope-button.is-pressed {
+  box-shadow: none;
+}
+
+@media (max-width: 980px) {
+  .mini-device {
+    width: min(100%, 680px);
+  }
+
+  .mini-device-controls {
+    grid-template-columns: repeat(3, minmax(110px, 1fr));
+  }
+
+  .mini-device-controls .device-direction-button:first-child {
+    grid-column: 1 / -1;
+  }
+
+  .mini-device-controls .device-direction-button:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 560px) {
+  .mini-device {
+    width: 100%;
+    padding: 16px;
+  }
+
+  .mini-device-controls {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
