@@ -316,22 +316,25 @@ export default function MusicPlayer({ tracks, donationMessage }) {
           </div>
 
           <aside className="music-side-panel support-bay">
-            <p className="mini-title">Support module</p>
-
-            <div className="support-readout">
-              <p className="body-copy">
-                If you download the track, you’ll get a small support pop-up
-                after the download starts.
-              </p>
-
-              <p className="support-line">{donationMessage}</p>
-            </div>
-
             <Playlist
               tracks={tracks}
               currentIndex={currentIndex}
               onSelect={handleSelectTrack}
             />
+
+            <div className="album-art-card">
+              <div className="section-title gray">Album Art</div>
+
+              <div className="section-body">
+                <div className="album-art-frame">
+                  <img
+                    src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                    alt={`${currentTrack.title} album art`}
+                    className="album-art-image"
+                  />
+                </div>
+              </div>
+            </div>
           </aside>
         </div>
       </div>

@@ -32,8 +32,8 @@ export default function Header({ artistName, tagline }) {
           </div>
 
           <div className="update-box">
-            <span className="update-label">system note</span>
-            <strong>march 1999 style</strong>
+            <span className="update-label">system update</span>
+            <strong>patch 5.1.2026</strong>
           </div>
         </div>
       </div>

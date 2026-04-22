@@ -21,11 +21,19 @@ export default function App() {
 
         <div className="content-grid device-grid">
           <div className="sidebar-bg">
-            <Sidebar artistName={siteInfo.artistName} status={siteInfo.status} />
+            <Sidebar
+              artistName={siteInfo.artistName}
+              status={siteInfo.status}
+              donationMessage={siteInfo.donationMessage}
+            />
           </div>
 
           <main className="main-panel console-main">
-            <About text={siteInfo.aboutText} />
+            <About
+              text={siteInfo.aboutText}
+              artistName={siteInfo.artistName}
+              status={siteInfo.status}
+            />
             <MusicPlayer
               tracks={tracks}
               donationMessage={siteInfo.donationMessage}

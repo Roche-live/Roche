@@ -1,4 +1,4 @@
-export default function Sidebar({ artistName, status }) {
+export default function Sidebar({ artistName, status, donationMessage }) {
   const sidebarSocials = [
     { label: "Instagram", href: "https://example.com/instagram", src: "/social-instagram.svg" },
     { label: "YouTube", href: "https://example.com/youtube", src: "/social-youtube.svg" },
@@ -10,12 +10,6 @@ export default function Sidebar({ artistName, status }) {
     <aside className="sidebar">
       <div className="sidebar-shell">
         <p className="sidebar-panel-label">Side module</p>
-
-        <div className="box photo-box">
-          <div className="photo-placeholder">Artist Photo</div>
-          <p className="sidebar-name">{artistName}</p>
-          <p className="sidebar-status">{status}</p>
-        </div>
 
         <div className="box compact-box">
           <div className="box-title red">Connect</div>
@@ -37,12 +31,18 @@ export default function Sidebar({ artistName, status }) {
         </div>
 
         <div className="box compact-box">
-          <div className="box-title green">Quick Links</div>
-          <div className="box-body compact-body links-list">
-            <a href="#music">Listen now</a>
-            <a href="#about">Read more</a>
-            <a href="#socials">Find me online</a>
-            <a href="#contact">Send a message</a>
+          <div className="box-title green">Support</div>
+          <div className="box-body compact-body">
+            <p className="mini-title">Support module</p>
+
+            <div className="support-readout">
+              <p className="body-copy">
+                If you download the track, you’ll get a small support pop-up
+                after the download starts.
+              </p>
+
+              <p className="support-line">{donationMessage}</p>
+            </div>
           </div>
         </div>
       </div>
