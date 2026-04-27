@@ -1,46 +1,40 @@
-import React from "react";
-import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
-import About from "./components/About";
 import MusicPlayer from "./components/MusicPlayer";
-import SpaceJetGame from "./components/space-jet/SpaceJetGame";
-import Socials from "./components/Socials";
-import Contact from "./components/Contact";
-import { tracks, socials, siteInfo } from "./data/siteData";
+import { tracks, siteInfo } from "./data/siteData";
+import { useAudioDeck } from "./hooks/useAudioDeck";
 
 export default function App() {
+  const audioDeck = useAudioDeck(tracks);
+
   return (
     <div className="page-shell">
       <div className="site-frame device-shell">
-        <Header
-          artistName={siteInfo.artistName}
-          tagline={siteInfo.tagline}
-          logoSrc={siteInfo.logoSrc}
-          logoAlt={siteInfo.logoAlt}
-        />
+        <div className="control-panel" aria-label="Universal control panel">
+          <div className="system-name">{siteInfo.artistName} System</div>
+          <div className="control-buttons" aria-label="Inactive device controls">
+            <button type="button" className="control-button" aria-label="Control slot one" disabled>
+              I
+            </button>
+            <button type="button" className="control-button" aria-label="Control slot two" disabled>
+              II
+            </button>
+            <button type="button" className="control-button" aria-label="Control slot three" disabled>
+              III
+            </button>
+          </div>
+        </div>
 
         <div className="content-grid device-grid">
           <div className="sidebar-bg">
-            <Sidebar
-              artistName={siteInfo.artistName}
-              status={siteInfo.status}
-              donationMessage={siteInfo.donationMessage}
-            />
+            <Sidebar audioDeck={audioDeck} />
           </div>
 
           <main className="main-panel console-main">
-            <About
-              text={siteInfo.aboutText}
-              artistName={siteInfo.artistName}
-              status={siteInfo.status}
-            />
             <MusicPlayer
               tracks={tracks}
               donationMessage={siteInfo.donationMessage}
+              audioDeck={audioDeck}
             />
-            <SpaceJetGame />
-            <Socials socials={socials} />
-            <Contact />
           </main>
         </div>
       </div>

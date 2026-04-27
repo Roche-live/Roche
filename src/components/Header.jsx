@@ -25,6 +25,7 @@ export default function Header({ artistName, tagline }) {
             <div className="title-block">
               <h1 className="site-title">{artistName}</h1>
             </div>
+            {tagline ? <p className="site-subline">{tagline}</p> : null}
           </div>
 
           <div className="logo-slot">

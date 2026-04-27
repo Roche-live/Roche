@@ -107,6 +107,18 @@ export default function Visualizer({ audioRef }) {
       <div className="visualizer-label">Live Visual</div>
 
       <div className="visualizer-screen">
+        <div className="live-visual-images">
+          <div className="live-visual-image-slot">
+            <img src="/images/live-visual-1.jpg" alt="Live visual image 1" />
+          </div>
+          <div className="live-visual-image-slot">
+            <img src="/images/live-visual-2.jpg" alt="Live visual image 2" />
+          </div>
+          <div className="live-visual-image-slot">
+            <img src="/images/live-visual-3.jpg" alt="Live visual image 3" />
+          </div>
+        </div>
+
         <div className="visualizer-bars analog-bars">
           {levels.map((level, barIndex) => (
             <div key={barIndex} className="analog-bar">

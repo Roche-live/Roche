@@ -1,50 +1,84 @@
-export default function Sidebar({ artistName, status, donationMessage }) {
-  const sidebarSocials = [
-    { label: "Instagram", href: "https://example.com/instagram", src: "/social-instagram.svg" },
-    { label: "YouTube", href: "https://example.com/youtube", src: "/social-youtube.svg" },
-    { label: "Bandcamp", href: "https://example.com/bandcamp", src: "/social-bandcamp.svg" },
-    { label: "TikTok", href: "https://example.com/tiktok", src: "/social-tiktok.svg" },
-  ];
-
+export default function Sidebar({ audioDeck }) {
   return (
     <aside className="sidebar">
       <div className="sidebar-shell">
         <p className="sidebar-panel-label">Side module</p>
 
-        <div className="box compact-box">
+        <div id="about" className="box compact-box sidebar-welcome-box">
+          <div className="box-title purple">Welcome</div>
+          <div className="box-body compact-body sidebar-intro-body">
+            <p className="intro-kicker">Architect notes</p>
+            <p className="intro-text sidebar-intro-text architect-text">
+              It started with the music.
+              <br />
+              After that, everything began to connect.
+              <br />
+              Not by design at first—but it held.
+              <br />
+              Now it’s being built that way.
+              <br />
+              Nothing stands alone.
+              <br />
+              The surface is only part of it.
+            </p>
+          </div>
+        </div>
+
+        <div className="box compact-box sidebar-connect-box">
           <div className="box-title red">Connect</div>
-          <div className="box-body compact-body social-sidebar-grid">
-            {sidebarSocials.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                target="_blank"
-                rel="noreferrer"
-                className="social-sidebar-link"
-                aria-label={item.label}
-                title={item.label}
-              >
-                <img src={item.src} alt={item.label} className="social-sidebar-image" />
-              </a>
-            ))}
+          <div className="box-body compact-body sidebar-connect-grid">
+            <a href="#" className="sidebar-connect-link">Instagram</a>
+            <a href="#" className="sidebar-connect-link">TikTok</a>
+            <a href="#" className="sidebar-connect-link">X</a>
+            <a href="#" className="sidebar-connect-link">Facebook</a>
           </div>
         </div>
 
-        <div className="box compact-box">
-          <div className="box-title green">Support</div>
-          <div className="box-body compact-body">
-            <p className="mini-title">Support module</p>
-
-            <div className="support-readout">
-              <p className="body-copy">
-                If you download the track, you’ll get a small support pop-up
-                after the download starts.
-              </p>
-
-              <p className="support-line">{donationMessage}</p>
-            </div>
+        <div className="box compact-box sidebar-listen-box">
+          <div className="box-title red">Listen</div>
+          <div className="box-body compact-body sidebar-link-grid">
+            <a href="#" className="sidebar-link-button">Spotify</a>
+            <a href="#" className="sidebar-link-button">Apple Music</a>
+            <a href="#" className="sidebar-link-button">YouTube</a>
+            <a href="#" className="sidebar-link-button">Web3</a>
           </div>
         </div>
+
+        <div className="box compact-box sidebar-music-control-box">
+          <div className="box-title green">MUSIC CONTROL</div>
+          <div className="box-body compact-body sidebar-music-controls">
+            <button
+              type="button"
+              className="sidebar-music-button"
+              onClick={audioDeck.handlePrev}
+            >
+              Back
+            </button>
+            <button
+              type="button"
+              className="sidebar-music-button"
+              onClick={audioDeck.togglePlay}
+              aria-label={audioDeck.isPlaying ? "Pause current track" : "Play current track"}
+            >
+              {audioDeck.isPlaying ? "Pause" : "Play"}
+            </button>
+            <button
+              type="button"
+              className="sidebar-music-button"
+              onClick={audioDeck.handleNext}
+            >
+              Next
+            </button>
+          </div>
+        </div>
+
+        <div className="box compact-box system-notes">
+          <div className="box-title gray system-notes-title">SYSTEM NOTES</div>
+          <div className="box-body compact-body system-notes-content">
+            Patch Update 1.5.26
+          </div>
+        </div>
+
       </div>
     </aside>
   );

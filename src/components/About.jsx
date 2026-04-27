@@ -25,6 +25,7 @@ export default function About({ text, artistName, status }) {
               <br />
               The surface is only part of it.
             </p>
+            {text ? <p className="body-copy intro-text-secondary">{text}</p> : null}
           </div>
         </div>
       </div>
